@@ -5,21 +5,27 @@ body {
   margin: 0;
 }
 iframe {
-  aspect-ratio: 1.7777;
-  border: none
+  aspect-ratio: 1.7777
 }
 </style>
-<iframe src="//www.youtube.com/embed/Rk54JNn7Qw4?mute=1" allow="autoplay;clipboard-write;picture-in-picture;web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+<div id=player></div>
 <script>
 function onYouTubeIframeAPIReady() {
-  player = new YT.Player('player', {
-    videoId: 'M7lc1UVf-VE', // 動画ID
+  player = new YT.Player("player", {
+    videoId: "Rk54JNn7Qw4",
+    playerVars: { mute: 1 },
     events: {
-      onReady: onPlayerReady,
-      onStateChange: onPlayerStateChange
+      onReady: () => {
+        alert("準備完了");
+      },
+      onStateChange: () => {
+        alert("OK")
+      }
     }
   });
 }
+
+/*
 function onPlayerReady(event) {
   console.log("準備完了");
 }
@@ -37,4 +43,5 @@ function onPlayerStateChange(event) {
       break;
   }
 }
+*/
 </script>
